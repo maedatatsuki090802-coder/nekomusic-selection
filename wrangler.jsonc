@@ -1,0 +1,14 @@
+{
+  "name": "your-music-select",
+  "compatibility_date": "2026-09-08",
+  "assets": {
+    "directory": "./",
+    // follow-up (2026-09-13): ハッシュ(#new_popularityなど)ルーティングから、
+    // 本物のURLパス(/new_popularityなど)によるルーティングに移行するための設定。
+    // これがないと /new_popularity のような未知のパスへの直接アクセス・リロードが
+    // 404になる。single-page-application を指定すると、静的ファイルに一致しない
+    // パスはすべて index.html にフォールバックし、あとはクライアント側JSが
+    // location.pathname を見て正しいビューを表示する。
+    "not_found_handling": "single-page-application"
+  }
+}

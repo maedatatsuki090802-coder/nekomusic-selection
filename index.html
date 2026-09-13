@@ -4,12 +4,17 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9947587258644322"
      crossorigin="anonymous"></script>
 <meta charset="UTF-8">
-<title>CDプレイヤーの選び方 | NEKO MUSIC SELECT</title>
+<!-- follow-up（2026-09-13）: これまで固定だった<title>/<meta description>/og:*/canonicalは、
+     ハッシュルーティング→実URLパスへの移行にあわせて、ページ遷移時にJS(VIEW_META)が
+     ビューごとに書き換える。ここに書かれている値はホーム画面（"/"）用の初期値、および
+     JSが動かない場合のフォールバック。 -->
+<title>CDプレイヤーランキング feat.nekomusic | NEKO MUSIC SELECT</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Neko Musicで見つけた曲、CDで手元に置きたくなったら。新品なら楽天市場・Amazonで、中古の掘り出し物ならメルカリで。携帯用（人気順・音質順・価格順）と据え置き型、それぞれのおすすめTOP5をページごとに紹介するCDプレイヤー選びガイド「NEKO MUSIC SELECT」。">
-<meta property="og:title" content="CDプレイヤーの選び方 | NEKO MUSIC SELECT">
+<meta property="og:title" content="CDプレイヤーランキング feat.nekomusic | NEKO MUSIC SELECT">
 <meta property="og:description" content="Neko Musicで見つけた曲、CDで手元に置きたくなったら。新品なら楽天市場・Amazonで、中古の掘り出し物ならメルカリで。携帯用（人気順・音質順・価格順）と据え置き型、それぞれのおすすめTOP5をページごとに紹介するCDプレイヤー選びガイド「NEKO MUSIC SELECT」。">
 <meta property="og:type" content="website">
+<link rel="canonical" href="https://nekomusics.com/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Archivo:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -179,7 +184,7 @@
      flex-basis:100%で強制的に2行目に送ることで、カード自体を2行に短縮。文字数が
      多いカード（Neko Music Recommendなど）は is-stacked で従来の縦積み3行のまま残す。 */
   .select-nav-card{
-    appearance:none; text-align:left; cursor:pointer; width:100%;
+    appearance:none; text-align:left; text-decoration:none; color:inherit; cursor:pointer; width:100%;
     background:var(--paper); border:1px solid var(--line-on-paper); border-radius:12px;
     padding:8px 13px; display:flex; flex-direction:row; flex-wrap:wrap; align-items:baseline;
     column-gap:6px; row-gap:1px; min-height:0;
@@ -235,7 +240,7 @@
 
   /* ---------- category pages ---------- */
   .page-back{
-    appearance:none; background:none; cursor:pointer; display:inline-flex; align-items:center; gap:6px;
+    appearance:none; background:none; text-decoration:none; cursor:pointer; display:inline-flex; align-items:center; gap:6px;
     border:1px solid var(--line-on-sky); border-radius:100px; padding:8px 16px 8px 14px;
     font-size:0.78rem; color:var(--muted-on-sky); margin-bottom:26px;
   }
@@ -302,17 +307,17 @@
   /* follow-up 82: フッターの運営・法務ページ一覧。PCでは横並び、スマホでは縦並びに。
      目立たせすぎない一方で、見つけにくくもしない——下線つきの控えめなテキストリンク。 */
   .footer-legal-nav{ display:flex; flex-wrap:wrap; align-items:center; gap:5px 0; margin-top:18px; padding-top:16px; border-top:1px dashed var(--line-on-sky); }
-  .footer-legal-nav button{
+  .footer-legal-nav a{
     appearance:none; background:none; border:none; cursor:pointer; padding:2px 12px;
     font-family:var(--font-body); font-size:0.74rem; color:var(--muted-on-sky);
     text-decoration:underline; text-underline-offset:2px; text-decoration-color:var(--line-on-sky);
     border-left:1px solid var(--line-on-sky);
   }
-  .footer-legal-nav button:first-child{ padding-left:0; border-left:none; }
-  .footer-legal-nav button:hover{ color:var(--ink-on-sky); text-decoration-color:var(--lamp); }
+  .footer-legal-nav a:first-child{ padding-left:0; border-left:none; }
+  .footer-legal-nav a:hover{ color:var(--ink-on-sky); text-decoration-color:var(--lamp); }
   @media (max-width:480px){
     .footer-legal-nav{ flex-direction:column; align-items:flex-start; gap:10px; }
-    .footer-legal-nav button{ border-left:none; padding:0; }
+    .footer-legal-nav a{ border-left:none; padding:0; }
   }
 
   /* 法務ページ内の連絡先ボタン・チェックリスト調整 */
@@ -393,12 +398,12 @@
         <div class="condition-head"><span class="condition-eyebrow">GUIDE</span></div>
         <p class="condition-sub">CDプレーヤーが初めての人、どれを選べばいいか迷っている人へ。</p>
         <div class="select-nav-grid">
-          <button class="select-nav-card" type="button" onclick="goto('how_to_choose')">
+          <a class="select-nav-card" href="/how_to_choose" onclick="return navClick(event,'how_to_choose')">
             <span class="nav-card-title">CDプレーヤーの選び方</span><span class="nav-card-sub">何を基準に選べばいいかわからない人へ</span><span class="nav-card-arrow">読む →</span>
-          </button>
-          <button class="select-nav-card" type="button" onclick="goto('portable_vs_home')">
+          </a>
+          <a class="select-nav-card" href="/portable_vs_home" onclick="return navClick(event,'portable_vs_home')">
             <span class="nav-card-title">ポータブル vs 据え置き</span><span class="nav-card-sub">自分にはどっちが合ってる？</span><span class="nav-card-arrow">読む →</span>
-          </button>
+          </a>
         </div>
       </div>
 
@@ -406,21 +411,21 @@
         <div class="condition-head"><span class="condition-eyebrow">NEW</span><h2 class="condition-title">新品で選ぶ</h2></div>
         <p class="condition-sub">まず確実に、新品で使いたい人へ。楽天市場・Amazonで購入できます。</p>
         <div class="select-nav-grid is-list">
-          <button class="select-nav-card" type="button" onclick="goto('new_popularity')">
+          <a class="select-nav-card" href="/new_popularity" onclick="return navClick(event,'new_popularity')">
             <span class="nav-card-title">携帯用・人気順</span><span class="nav-card-sub">まず売れている定番の5台</span><span class="nav-card-arrow">TOP5を見る →</span>
-          </button>
-          <button class="select-nav-card" type="button" onclick="goto('new_quality')">
+          </a>
+          <a class="select-nav-card" href="/new_quality" onclick="return navClick(event,'new_quality')">
             <span class="nav-card-title">携帯用・音質順</span><span class="nav-card-sub">音にこだわりたい人へ</span><span class="nav-card-arrow">TOP5を見る →</span>
-          </button>
-          <button class="select-nav-card" type="button" onclick="goto('new_price')">
+          </a>
+          <a class="select-nav-card" href="/new_price" onclick="return navClick(event,'new_price')">
             <span class="nav-card-title">携帯用・価格順</span><span class="nav-card-sub">とにかく安く始めたい人へ</span><span class="nav-card-arrow">TOP5を見る →</span>
-          </button>
-          <button class="select-nav-card" type="button" onclick="goto('new_home')">
+          </a>
+          <a class="select-nav-card" href="/new_home" onclick="return navClick(event,'new_home')">
             <span class="nav-card-title">部屋に置く据え置き型</span><span class="nav-card-sub">じっくり聴きたい人へ</span><span class="nav-card-arrow">TOP5を見る →</span>
-          </button>
-          <button class="select-nav-card is-stacked" type="button" onclick="goto('new_recommend')">
+          </a>
+          <a class="select-nav-card is-stacked" href="/new_recommend" onclick="return navClick(event,'new_recommend')">
             <span class="nav-card-title">Neko Music Recommend</span><span class="nav-card-sub">値段も音質も人気も関係ない、ロマンの1台</span><span class="nav-card-arrow">見る →</span>
-          </button>
+          </a>
         </div>
       </div>
 
@@ -428,15 +433,15 @@
         <div class="condition-head"><span class="condition-eyebrow">USED</span><h2 class="condition-title">中古・掘り出し物で選ぶ</h2></div>
         <p class="condition-sub">生産終了モデルやレトロな一台との出会いを探したい人へ。メルカリで探せます。</p>
         <div class="select-nav-grid is-list">
-          <button class="select-nav-card" type="button" onclick="goto('used_portable')">
+          <a class="select-nav-card" href="/used_portable" onclick="return navClick(event,'used_portable')">
             <span class="nav-card-title">おすすめの携帯用CDプレイヤー</span><span class="nav-card-sub">懐かしいモデルとの出会い</span><span class="nav-card-arrow">TOP5を見る →</span>
-          </button>
-          <button class="select-nav-card" type="button" onclick="goto('used_y2k')">
+          </a>
+          <a class="select-nav-card" href="/used_y2k" onclick="return navClick(event,'used_y2k')">
             <span class="nav-card-title">Y2K世代のCDプレーヤー</span><span class="nav-card-sub">当時実際に使われていたTOP5</span><span class="nav-card-arrow">TOP5を見る →</span>
-          </button>
-          <button class="select-nav-card" type="button" onclick="goto('used_home')">
+          </a>
+          <a class="select-nav-card" href="/used_home" onclick="return navClick(event,'used_home')">
             <span class="nav-card-title">部屋に置くCDプレイヤー</span><span class="nav-card-sub">生産終了した名機を求めて</span><span class="nav-card-arrow">TOP5を見る →</span>
-          </button>
+          </a>
         </div>
       </div>
 
@@ -444,12 +449,12 @@
 
       <div class="condition-block is-about">
         <div class="select-nav-grid">
-          <button class="select-nav-card" type="button" onclick="goto('cd_lovers')">
+          <a class="select-nav-card" href="/cd_lovers" onclick="return navClick(event,'cd_lovers')">
             <span class="nav-card-title">今、CDを楽しむ人へ</span><span class="nav-card-sub">CDを買った、その先へ。</span><span class="nav-card-arrow">読む →</span>
-          </button>
-          <button class="select-nav-card" type="button" onclick="goto('about_yourmusic')">
+          </a>
+          <a class="select-nav-card" href="/about_yourmusic" onclick="return navClick(event,'about_yourmusic')">
             <span class="nav-card-title">Neko Musicとは</span><span class="nav-card-sub">このサイトをつくる理由</span><span class="nav-card-arrow">読む →</span>
-          </button>
+          </a>
         </div>
       </div>
 
@@ -458,7 +463,7 @@
 
     <!-- ============ 新品・携帯用・人気順 ============ -->
     <div class="view" data-view="new_popularity" hidden>
-      <button class="page-back" type="button" onclick="goto('home')">← 一覧に戻る</button>
+      <a class="page-back" href="/" onclick="return navClick(event,'home')">← 一覧に戻る</a>
       <div class="page-head">
         <span class="page-eyebrow">NEW ・ 携帯用</span>
         <h2 class="page-title">人気順TOP5</h2>
@@ -470,7 +475,7 @@
 
     <!-- ============ 新品・携帯用・音質順 ============ -->
     <div class="view" data-view="new_quality" hidden>
-      <button class="page-back" type="button" onclick="goto('home')">← 一覧に戻る</button>
+      <a class="page-back" href="/" onclick="return navClick(event,'home')">← 一覧に戻る</a>
       <div class="page-head">
         <span class="page-eyebrow">NEW ・ 携帯用</span>
         <h2 class="page-title">音質順TOP5</h2>
@@ -482,7 +487,7 @@
 
     <!-- ============ 新品・携帯用・価格順 ============ -->
     <div class="view" data-view="new_price" hidden>
-      <button class="page-back" type="button" onclick="goto('home')">← 一覧に戻る</button>
+      <a class="page-back" href="/" onclick="return navClick(event,'home')">← 一覧に戻る</a>
       <div class="page-head">
         <span class="page-eyebrow">NEW ・ 携帯用</span>
         <h2 class="page-title">価格順TOP5</h2>
@@ -494,7 +499,7 @@
 
     <!-- ============ 新品・据え置き型 ============ -->
     <div class="view" data-view="new_home" hidden>
-      <button class="page-back" type="button" onclick="goto('home')">← 一覧に戻る</button>
+      <a class="page-back" href="/" onclick="return navClick(event,'home')">← 一覧に戻る</a>
       <div class="page-head">
         <span class="page-eyebrow">NEW ・ 据え置き型</span>
         <h2 class="page-title">部屋に置く据え置き型・おすすめTOP5</h2>
@@ -506,7 +511,7 @@
 
     <!-- ============ Neko Music Recommend ============ -->
     <div class="view" data-view="new_recommend" hidden>
-      <button class="page-back" type="button" onclick="goto('home')">← 一覧に戻る</button>
+      <a class="page-back" href="/" onclick="return navClick(event,'home')">← 一覧に戻る</a>
       <div class="page-head">
         <span class="page-eyebrow">NEW ・ RECOMMEND</span>
         <h2 class="page-title">Neko Music Recommend</h2>
@@ -522,7 +527,7 @@
 
     <!-- ============ 中古・携帯用 ============ -->
     <div class="view" data-view="used_portable" hidden>
-      <button class="page-back" type="button" onclick="goto('home')">← 一覧に戻る</button>
+      <a class="page-back" href="/" onclick="return navClick(event,'home')">← 一覧に戻る</a>
       <div class="page-head">
         <span class="page-eyebrow">USED ・ 携帯用</span>
         <h2 class="page-title">おすすめの携帯用CDプレイヤーTOP5</h2>
@@ -534,7 +539,7 @@
 
     <!-- ============ 中古・据え置き型 ============ -->
     <div class="view" data-view="used_home" hidden>
-      <button class="page-back" type="button" onclick="goto('home')">← 一覧に戻る</button>
+      <a class="page-back" href="/" onclick="return navClick(event,'home')">← 一覧に戻る</a>
       <div class="page-head">
         <span class="page-eyebrow">USED ・ 据え置き型</span>
         <h2 class="page-title">部屋に置くCDプレイヤーTOP5</h2>
@@ -546,7 +551,7 @@
 
     <!-- ============ 中古・Y2Kレトロ ============ -->
     <div class="view" data-view="used_y2k" hidden>
-      <button class="page-back" type="button" onclick="goto('home')">← 一覧に戻る</button>
+      <a class="page-back" href="/" onclick="return navClick(event,'home')">← 一覧に戻る</a>
       <div class="page-head">
         <span class="page-eyebrow">USED ・ Y2K TOP5</span>
         <h2 class="page-title">あの頃、教室やカバンの中にあったCDプレーヤー</h2>
@@ -562,7 +567,7 @@
 
     <!-- ============ CDプレーヤーの選び方 ============ -->
     <div class="view" data-view="how_to_choose" hidden>
-      <button class="page-back" type="button" onclick="goto('home')">← 一覧に戻る</button>
+      <a class="page-back" href="/" onclick="return navClick(event,'home')">← 一覧に戻る</a>
       <div class="page-head">
         <span class="page-eyebrow">GUIDE</span>
         <h2 class="page-title">CDプレーヤーの選び方</h2>
@@ -576,21 +581,21 @@
       <p class="article-body is-muted">まずは、自分の使い方に近いものを選んでみてください。</p>
       <div class="condition-block is-guide" style="margin-bottom:0;">
         <div class="select-nav-grid">
-          <button class="select-nav-card" type="button" onclick="goto('new_popularity')">
+          <a class="select-nav-card" href="/new_popularity" onclick="return navClick(event,'new_popularity')">
             <span class="nav-card-title">持ち歩きたい</span><span class="nav-card-sub">ポータブルCDプレーヤー・人気順から</span><span class="nav-card-arrow">見る →</span>
-          </button>
-          <button class="select-nav-card" type="button" onclick="goto('new_home')">
+          </a>
+          <a class="select-nav-card" href="/new_home" onclick="return navClick(event,'new_home')">
             <span class="nav-card-title">家でじっくり聴きたい</span><span class="nav-card-sub">据え置き型CDプレーヤー</span><span class="nav-card-arrow">見る →</span>
-          </button>
-          <button class="select-nav-card" type="button" onclick="goto('new_price')">
+          </a>
+          <a class="select-nav-card" href="/new_price" onclick="return navClick(event,'new_price')">
             <span class="nav-card-title">できるだけ安く</span><span class="nav-card-sub">価格重視のランキング</span><span class="nav-card-arrow">見る →</span>
-          </button>
-          <button class="select-nav-card" type="button" onclick="goto('new_quality')">
+          </a>
+          <a class="select-nav-card" href="/new_quality" onclick="return navClick(event,'new_quality')">
             <span class="nav-card-title">音質を重視したい</span><span class="nav-card-sub">音質重視のランキング</span><span class="nav-card-arrow">見る →</span>
-          </button>
-          <button class="select-nav-card" type="button" onclick="goto('portable_vs_home')">
+          </a>
+          <a class="select-nav-card" href="/portable_vs_home" onclick="return navClick(event,'portable_vs_home')">
             <span class="nav-card-title">まだ迷っている</span><span class="nav-card-sub">ポータブルと据え置きを比較する</span><span class="nav-card-arrow">見る →</span>
-          </button>
+          </a>
         </div>
       </div>
 
@@ -617,31 +622,31 @@
       <p class="page-cta-label">ランキングを見る</p>
       <div class="condition-block is-guide" style="margin-bottom:0;">
         <div class="select-nav-grid">
-          <button class="select-nav-card" type="button" onclick="goto('new_popularity')">
+          <a class="select-nav-card" href="/new_popularity" onclick="return navClick(event,'new_popularity')">
             <span class="nav-card-title">携帯用・人気順</span><span class="nav-card-sub">まず売れている定番の5台</span><span class="nav-card-arrow">TOP5を見る →</span>
-          </button>
-          <button class="select-nav-card" type="button" onclick="goto('new_quality')">
+          </a>
+          <a class="select-nav-card" href="/new_quality" onclick="return navClick(event,'new_quality')">
             <span class="nav-card-title">携帯用・音質順</span><span class="nav-card-sub">音にこだわりたい人へ</span><span class="nav-card-arrow">TOP5を見る →</span>
-          </button>
-          <button class="select-nav-card" type="button" onclick="goto('new_price')">
+          </a>
+          <a class="select-nav-card" href="/new_price" onclick="return navClick(event,'new_price')">
             <span class="nav-card-title">携帯用・価格順</span><span class="nav-card-sub">とにかく安く始めたい人へ</span><span class="nav-card-arrow">TOP5を見る →</span>
-          </button>
-          <button class="select-nav-card" type="button" onclick="goto('new_home')">
+          </a>
+          <a class="select-nav-card" href="/new_home" onclick="return navClick(event,'new_home')">
             <span class="nav-card-title">部屋に置く据え置き型</span><span class="nav-card-sub">じっくり聴きたい人へ</span><span class="nav-card-arrow">TOP5を見る →</span>
-          </button>
-          <button class="select-nav-card" type="button" onclick="goto('used_portable')">
+          </a>
+          <a class="select-nav-card" href="/used_portable" onclick="return navClick(event,'used_portable')">
             <span class="nav-card-title">中古・携帯用</span><span class="nav-card-sub">懐かしいモデルとの出会い</span><span class="nav-card-arrow">TOP5を見る →</span>
-          </button>
-          <button class="select-nav-card" type="button" onclick="goto('used_home')">
+          </a>
+          <a class="select-nav-card" href="/used_home" onclick="return navClick(event,'used_home')">
             <span class="nav-card-title">中古・据え置き型</span><span class="nav-card-sub">生産終了した名機を求めて</span><span class="nav-card-arrow">TOP5を見る →</span>
-          </button>
+          </a>
         </div>
       </div>
     </div>
 
     <!-- ============ ポータブル vs 据え置き ============ -->
     <div class="view" data-view="portable_vs_home" hidden>
-      <button class="page-back" type="button" onclick="goto('home')">← 一覧に戻る</button>
+      <a class="page-back" href="/" onclick="return navClick(event,'home')">← 一覧に戻る</a>
       <div class="page-head">
         <span class="page-eyebrow">GUIDE</span>
         <h2 class="page-title">ポータブル vs 据え置き</h2>
@@ -674,19 +679,19 @@
       <p class="page-cta-label">ランキングを見る</p>
       <div class="condition-block is-guide" style="margin-bottom:0;">
         <div class="select-nav-grid">
-          <button class="select-nav-card" type="button" onclick="goto('new_popularity')">
+          <a class="select-nav-card" href="/new_popularity" onclick="return navClick(event,'new_popularity')">
             <span class="nav-card-title">ポータブルのランキングを見る</span><span class="nav-card-sub">携帯用・人気順TOP5</span><span class="nav-card-arrow">TOP5を見る →</span>
-          </button>
-          <button class="select-nav-card" type="button" onclick="goto('new_home')">
+          </a>
+          <a class="select-nav-card" href="/new_home" onclick="return navClick(event,'new_home')">
             <span class="nav-card-title">据え置き型のランキングを見る</span><span class="nav-card-sub">部屋に置く据え置き型TOP5</span><span class="nav-card-arrow">TOP5を見る →</span>
-          </button>
+          </a>
         </div>
       </div>
     </div>
 
     <!-- ============ 今、CDを楽しむ人へ ============ -->
     <div class="view" data-view="cd_lovers" hidden>
-      <button class="page-back" type="button" onclick="goto('home')">← 一覧に戻る</button>
+      <a class="page-back" href="/" onclick="return navClick(event,'home')">← 一覧に戻る</a>
       <div class="page-head">
         <span class="page-eyebrow">STORY</span>
         <h2 class="page-title">今、CDを楽しむ人へ</h2>
@@ -700,19 +705,19 @@
       <p class="page-cta-label">CDプレーヤーを探す</p>
       <div class="condition-block is-guide" style="margin-bottom:0;">
         <div class="select-nav-grid">
-          <button class="select-nav-card" type="button" onclick="goto('how_to_choose')">
+          <a class="select-nav-card" href="/how_to_choose" onclick="return navClick(event,'how_to_choose')">
             <span class="nav-card-title">CDプレーヤーの選び方</span><span class="nav-card-sub">何を基準に選べばいいかわからない人へ</span><span class="nav-card-arrow">読む →</span>
-          </button>
-          <button class="select-nav-card" type="button" onclick="goto('about_yourmusic')">
+          </a>
+          <a class="select-nav-card" href="/about_yourmusic" onclick="return navClick(event,'about_yourmusic')">
             <span class="nav-card-title">Neko Musicとは</span><span class="nav-card-sub">私たちがこのサイトを作る理由</span><span class="nav-card-arrow">読む →</span>
-          </button>
+          </a>
         </div>
       </div>
     </div>
 
     <!-- ============ Neko Musicとは ============ -->
     <div class="view" data-view="about_yourmusic" hidden>
-      <button class="page-back" type="button" onclick="goto('home')">← 一覧に戻る</button>
+      <a class="page-back" href="/" onclick="return navClick(event,'home')">← 一覧に戻る</a>
       <div class="page-head">
         <span class="page-eyebrow">ABOUT</span>
         <h2 class="page-title">Neko Musicとは</h2>
@@ -721,14 +726,14 @@
       <p class="yourmusic-copy">私たちは、音楽から少し離れてしまった。<br>いつでも、どこでも、どんな曲でも聴けるこの時代だから。<br><br>好きな人が好きだった曲。<br>苦しいときに助けられた曲。<br>親友と一緒に歌った、あの日。<br><br>そんな大切な思い出を、CDにしてみませんか。<br><br>あなたと曲の出会いを、Neko Musicは大切にします。<br>そして、アーティストの熱を、直接届けるために。<br>Neko Musicは存在します。<br><br>ここは、音楽が世界で一番熱狂するための<br>プラットフォームです。</p>
 
       <a class="yourmusic-cta" href="https://claude.ai/code/artifact/b4497416-ee26-4d85-a16c-1e9f253f7366">Neko Musicで音楽と出会う →</a>
-      <button class="yourmusic-cta is-secondary" type="button" onclick="goto('how_to_choose')">CDプレーヤーを選ぶ →</button>
+      <a class="yourmusic-cta is-secondary" href="/how_to_choose" onclick="return navClick(event,'how_to_choose')">CDプレーヤーを選ぶ →</a>
     </div>
 
     <!-- ============ 運営・法務ページ（follow-up 82, 2026-09-08） ============ -->
 
     <!-- ============ 運営者情報 ============ -->
     <div class="view is-legal" data-view="operator_info" hidden>
-      <button class="page-back" type="button" onclick="goto('home')">← 一覧に戻る</button>
+      <a class="page-back" href="/" onclick="return navClick(event,'home')">← 一覧に戻る</a>
       <div class="page-head">
         <span class="page-eyebrow">INFO</span>
         <h2 class="page-title">運営者情報</h2>
@@ -745,17 +750,17 @@
       <p class="article-body">Neko Music Selectionは、CDやCDプレーヤーを通じて、音楽をもっと楽しむための情報を提供するサイトです。楽曲との出会いを届ける音楽発見アプリ「Neko Music」の一部として、CDプレーヤー選びのガイドや購入先の案内を行っています。</p>
 
       <h3 class="article-heading">サイトの性質</h3>
-      <p class="article-body">当サイトは商品の販売主体ではありません。掲載しているCDプレーヤーは、Amazon・楽天市場・メルカリなど外部サイトで購入いただく形になります。当サイト自体で決済・配送・在庫管理などは行っていません。詳しくは<button class="footer-legal-nav-inline" type="button" onclick="goto('terms_of_service')" style="appearance:none;background:none;border:none;padding:0;margin:0;font:inherit;color:var(--lamp-strong);text-decoration:underline;cursor:pointer;">利用規約</button>をご確認ください。</p>
+      <p class="article-body">当サイトは商品の販売主体ではありません。掲載しているCDプレーヤーは、Amazon・楽天市場・メルカリなど外部サイトで購入いただく形になります。当サイト自体で決済・配送・在庫管理などは行っていません。詳しくは<a class="footer-legal-nav-inline" href="/terms_of_service" onclick="return navClick(event,'terms_of_service')" style="appearance:none;background:none;border:none;padding:0;margin:0;font:inherit;color:var(--lamp-strong);text-decoration:underline;cursor:pointer;">利用規約</a>をご確認ください。</p>
 
       <h3 class="article-heading">連絡先</h3>
-      <p class="article-body">nekomusics.official@gmail.com<br>お問い合わせの詳細は<button type="button" onclick="goto('contact')" style="appearance:none;background:none;border:none;padding:0;margin:0;font:inherit;color:var(--lamp-strong);text-decoration:underline;cursor:pointer;">お問い合わせページ</button>をご覧ください。</p>
+      <p class="article-body">nekomusics.official@gmail.com<br>お問い合わせの詳細は<a href="/contact" onclick="return navClick(event,'contact')" style="appearance:none;background:none;border:none;padding:0;margin:0;font:inherit;color:var(--lamp-strong);text-decoration:underline;cursor:pointer;">お問い合わせページ</a>をご覧ください。</p>
 
       <p class="legal-meta">最終更新日：2026年9月8日</p>
     </div>
 
     <!-- ============ プライバシーポリシー ============ -->
     <div class="view is-legal" data-view="privacy_policy" hidden>
-      <button class="page-back" type="button" onclick="goto('home')">← 一覧に戻る</button>
+      <a class="page-back" href="/" onclick="return navClick(event,'home')">← 一覧に戻る</a>
       <div class="page-head">
         <span class="page-eyebrow">INFO</span>
         <h2 class="page-title">プライバシーポリシー</h2>
@@ -807,7 +812,7 @@
 
     <!-- ============ 利用規約 ============ -->
     <div class="view is-legal" data-view="terms_of_service" hidden>
-      <button class="page-back" type="button" onclick="goto('home')">← 一覧に戻る</button>
+      <a class="page-back" href="/" onclick="return navClick(event,'home')">← 一覧に戻る</a>
       <div class="page-head">
         <span class="page-eyebrow">INFO</span>
         <h2 class="page-title">利用規約</h2>
@@ -855,7 +860,7 @@
 
     <!-- ============ お問い合わせ ============ -->
     <div class="view is-legal" data-view="contact" hidden>
-      <button class="page-back" type="button" onclick="goto('home')">← 一覧に戻る</button>
+      <a class="page-back" href="/" onclick="return navClick(event,'home')">← 一覧に戻る</a>
       <div class="page-head">
         <span class="page-eyebrow">INFO</span>
         <h2 class="page-title">お問い合わせ</h2>
@@ -881,7 +886,7 @@
 
     <!-- ============ アフィリエイト広告について ============ -->
     <div class="view is-legal" data-view="affiliate_disclosure" hidden>
-      <button class="page-back" type="button" onclick="goto('home')">← 一覧に戻る</button>
+      <a class="page-back" href="/" onclick="return navClick(event,'home')">← 一覧に戻る</a>
       <div class="page-head">
         <span class="page-eyebrow">INFO</span>
         <h2 class="page-title">アフィリエイト広告について</h2>
@@ -905,11 +910,11 @@
       このページは「Neko Music」の仕組みを確かめるためのプロトタイプです。掲載商品は実在しますが、価格・在庫は変動するため2026年9月時点の参考情報です。購入先リンクはAmazon・楽天・メルカリの実際のページ／検索結果に接続しています。楽天・メルカリ・Amazonのリンクは、いずれもアフィリエイトIDを反映済みです。広告枠はすべてプレースホルダーで、実際の広告配信は行っていません。
 
       <nav class="footer-legal-nav" aria-label="運営情報">
-        <button type="button" onclick="goto('operator_info')">運営者情報</button>
-        <button type="button" onclick="goto('privacy_policy')">プライバシーポリシー</button>
-        <button type="button" onclick="goto('terms_of_service')">利用規約</button>
-        <button type="button" onclick="goto('contact')">お問い合わせ</button>
-        <button type="button" onclick="goto('affiliate_disclosure')">アフィリエイト広告について</button>
+        <a href="/operator_info" onclick="return navClick(event,'operator_info')">運営者情報</a>
+        <a href="/privacy_policy" onclick="return navClick(event,'privacy_policy')">プライバシーポリシー</a>
+        <a href="/terms_of_service" onclick="return navClick(event,'terms_of_service')">利用規約</a>
+        <a href="/contact" onclick="return navClick(event,'contact')">お問い合わせ</a>
+        <a href="/affiliate_disclosure" onclick="return navClick(event,'affiliate_disclosure')">アフィリエイト広告について</a>
       </nav>
     </footer>
   </div>
@@ -1277,10 +1282,68 @@
      リンクされているため、後方互換として新しいview名にマッピングする）---------- */
   var VALID_VIEWS = ["home","new_popularity","new_quality","new_price","new_home","new_recommend","used_portable","used_home","used_y2k","how_to_choose","portable_vs_home","cd_lovers","about_yourmusic","operator_info","privacy_policy","terms_of_service","contact","affiliate_disclosure"];
   var LEGACY_HASH_MAP = { "cat-portable":"new_popularity", "cat-home":"new_home", "rank-price":"new_price" };
+
+  /* follow-up（2026-09-13）: SEO戦略（ペルソナ別ページ分割）の前提として、ハッシュ
+     （#new_popularityなど）ルーティングから本物のURLパス（/new_popularityなど）への
+     移行。ハッシュはブラウザ内だけの情報でサーバーに送信されないため、Googleからは
+     どのハッシュURLも https://nekomusics.com/ と同一ページにしか見えず、個別ページと
+     してインデックスされない。本物のパスに変えることで、ページごとに異なるURL・
+     <title>・meta descriptionを持たせられるようになる。
+     ただし claude.ai上のArtifactプレビューには nekomusics.com側のような
+     SPAフォールバック設定（wrangler.jsoncのnot_found_handling）を追加できないため、
+     /new_popularity のような未知のパスへ直接遷移すると404になってしまう。そのため
+     ホスト名がclaude.aiの場合だけ、従来どおりハッシュベースのルーティングを使う
+     フォールバックを残している（本番のnekomusics.com側は本物のURLパスを使う）。 */
+  var IS_REAL_PATH_HOST = !/(^|\.)claude\.ai$/.test(location.hostname);
+
+  /* ページごとの<title>・meta descriptionの実値。applyView()内でここを見て
+     document.title / meta[name=description] / og:title / og:description /
+     link[rel=canonical] を書き換える。値は各ページの page-eyebrow・page-title・
+     page-subの内容に沿って作成（新しい主張・データを足していない）。 */
+  var VIEW_META = {
+    home: { title:"CDプレイヤーランキング feat.nekomusic | NEKO MUSIC SELECT", description:"Neko Musicで見つけた曲、CDで手元に置きたくなったら。新品なら楽天市場・Amazonで、中古の掘り出し物ならメルカリで。携帯用（人気順・音質順・価格順）と据え置き型、それぞれのおすすめTOP5をページごとに紹介するCDプレイヤー選びガイド「NEKO MUSIC SELECT」。" },
+    new_popularity: { title:"携帯用CDプレーヤー 人気順TOP5 | NEKO MUSIC SELECT", description:"まず売れている、定番の5台。Amazonでの実売・人気傾向をもとに選んだ携帯用CDプレーヤーのおすすめランキングです。" },
+    new_quality: { title:"携帯用CDプレーヤー 音質順TOP5 | NEKO MUSIC SELECT", description:"音にこだわりたい人向けの携帯用CDプレーヤー5台。R2R方式のDACを搭載した上位モデルなども紹介しています。" },
+    new_price: { title:"携帯用CDプレーヤー 価格順TOP5（安い順） | NEKO MUSIC SELECT", description:"価格を抑えて、まず気軽に始めたい人向けの携帯用CDプレーヤー5台を安い順に紹介します。" },
+    new_home: { title:"据え置き型CDプレーヤー おすすめTOP5（予算3万円以下） | NEKO MUSIC SELECT", description:"予算3万円以下で選ぶ、じっくり聴きたい人・部屋に置きたい人向けの据え置き型CDプレーヤー5台。" },
+    new_recommend: { title:"Neko Music Recommend | NEKO MUSIC SELECT", description:"値段も、音質も、人気も、いったん抜きにして。ランキングでは選べない、ロマンだけで選んだCDプレーヤー6台。" },
+    used_portable: { title:"中古の携帯用CDプレイヤー おすすめTOP5 | NEKO MUSIC SELECT", description:"今は手に入らない、懐かしいポータブルCDプレーヤー5台。メルカリの検索結果につながります。" },
+    used_home: { title:"中古の据え置き型CDプレイヤー TOP5 | NEKO MUSIC SELECT", description:"生産終了した名機を、部屋に一台。中古の据え置き型CDプレーヤー5台をご紹介します。" },
+    used_y2k: { title:"Y2K世代のCDプレーヤー TOP5（当時実際に使われていた機種） | NEKO MUSIC SELECT", description:"1990年代後半〜2000年代前半、実際に多くの学生が使っていたポータブルCDプレーヤーTOP5。SONYのCDウォークマンも含めたランキングです。" },
+    how_to_choose: { title:"CDプレーヤーの選び方 | NEKO MUSIC SELECT", description:"初めての一台を選ぶ、5つのステップ。用途・音質・価格からCDプレーヤーの選び方を解説します。" },
+    portable_vs_home: { title:"ポータブル vs 据え置き どっちを選ぶ？ | NEKO MUSIC SELECT", description:"ポータブルCDプレーヤーと据え置き型、それぞれの特徴を比較。自分にはどっちが合っているか解説します。" },
+    cd_lovers: { title:"今、CDを楽しむ人へ | NEKO MUSIC SELECT", description:"推しのCD、ライブで買ったCD、昔好きだったアルバム。CDを聴く体験をもう一度、日常に。" },
+    about_yourmusic: { title:"Neko Musicとは | NEKO MUSIC SELECT", description:"音楽との出会いを届ける音楽発見アプリ「Neko Music」。私たちがこのサイトをつくる理由。" },
+    operator_info: { title:"運営者情報 | NEKO MUSIC SELECT", description:"Neko Music Selectionの運営者情報・サイトの目的・連絡先についてのご案内です。" },
+    privacy_policy: { title:"プライバシーポリシー | NEKO MUSIC SELECT", description:"Neko Music Selectionにおける個人情報・Cookie・localStorageの取り扱いについて説明します。" },
+    terms_of_service: { title:"利用規約 | NEKO MUSIC SELECT", description:"Neko Music Selectionをご利用いただく際の利用規約です。" },
+    contact: { title:"お問い合わせ | NEKO MUSIC SELECT", description:"掲載情報の誤りやリンクについてのご連絡はこちらから。Neko Music Selectionへのお問い合わせページです。" },
+    affiliate_disclosure: { title:"アフィリエイト広告について | NEKO MUSIC SELECT", description:"Neko Music Selectionの収益の仕組み（アフィリエイトプログラム）について説明します。" }
+  };
+  function viewToPath(name){ return name === "home" ? "/" : "/" + name; }
+  function pathToView(pathname){
+    var p = (pathname || "/").replace(/^\/+/, "").replace(/\/+$/, "");
+    if(p === "") return "home";
+    return VALID_VIEWS.indexOf(p) !== -1 ? p : null;
+  }
   function resolveView(hash){
     var h = (hash || "").replace("#", "");
     if(LEGACY_HASH_MAP[h]) return LEGACY_HASH_MAP[h];
     return VALID_VIEWS.indexOf(h) !== -1 ? h : "home";
+  }
+  /* 初期表示するviewを決める。本物のURLパスホストでは location.pathname を最優先し、
+     旧#hashリンク（7本のSEO記事アーティファクトや、以前の共有リンク経由）が来た場合は
+     LEGACY_HASH_MAPやVALID_VIEWSを見て解決したうえで、URLを本物のパスに正規化する。 */
+  function resolveInitialView(){
+    if(IS_REAL_PATH_HOST){
+      var fromPath = pathToView(location.pathname);
+      if(fromPath) return fromPath;
+      var h = (location.hash || "").replace("#", "");
+      if(LEGACY_HASH_MAP[h]) return LEGACY_HASH_MAP[h];
+      if(VALID_VIEWS.indexOf(h) !== -1) return h;
+      return "home";
+    }
+    return resolveView(location.hash);
   }
   var adSlotsRendered = {};
   /* follow-up 78: ページ数が7つに増えて各ページに広告を置くと見づらいため、
@@ -1307,12 +1370,46 @@
     document.querySelectorAll(".view").forEach(function(v){ v.hidden = v.getAttribute("data-view") !== name; });
     ensureAdSlot(name);
     window.scrollTo(0, 0);
+    var meta = VIEW_META[name] || VIEW_META.home;
+    document.title = meta.title;
+    var descEl = document.querySelector('meta[name="description"]');
+    if(descEl) descEl.setAttribute("content", meta.description);
+    var ogTitleEl = document.querySelector('meta[property="og:title"]');
+    if(ogTitleEl) ogTitleEl.setAttribute("content", meta.title);
+    var ogDescEl = document.querySelector('meta[property="og:description"]');
+    if(ogDescEl) ogDescEl.setAttribute("content", meta.description);
+    if(IS_REAL_PATH_HOST){
+      var canonicalEl = document.querySelector('link[rel="canonical"]');
+      if(canonicalEl) canonicalEl.setAttribute("href", location.origin + viewToPath(name));
+    }
   }
   function goto(name){
+    if(IS_REAL_PATH_HOST){
+      var path = viewToPath(name);
+      if(location.pathname === path){ applyView(name); return; }
+      history.pushState({ view:name }, "", path);
+      applyView(name);
+      return;
+    }
     if(location.hash === "#" + name){ applyView(name); return; }
     location.hash = name === "home" ? "" : name;
   }
-  window.addEventListener("hashchange", function(){ applyView(resolveView(location.hash)); });
+  /* nav-card/page-backなどをbutton→aタグ化（follow-up 2026-09-13）したことで、
+     クリック時にデフォルトのページ遷移を止めてSPA的な即時切り替えを行う一方、
+     href自体は本物のURLパスとして残すので、JSが動かない場合・Ctrl/Cmd+クリックで
+     新規タブを開く場合・Googlebotがリンクを辿る場合はどれも普通にそのURLへ
+     遷移できる。 */
+  function navClick(evt, name){
+    if(evt.metaKey || evt.ctrlKey || evt.shiftKey || evt.altKey || evt.button === 1) return true;
+    evt.preventDefault();
+    goto(name);
+    return false;
+  }
+  if(IS_REAL_PATH_HOST){
+    window.addEventListener("popstate", function(){ applyView(pathToView(location.pathname) || "home"); });
+  }else{
+    window.addEventListener("hashchange", function(){ applyView(resolveView(location.hash)); });
+  }
 
   function loadClicks(){
     try{
@@ -1377,7 +1474,19 @@
   renderProductGrid("used_y2k");
   initMastheadCdPlayer();
   addEyebrowCdIcons();
-  applyView(resolveView(location.hash));
+  (function initialNavigate(){
+    var initialView = resolveInitialView();
+    if(IS_REAL_PATH_HOST){
+      var correctPath = viewToPath(initialView);
+      /* 旧#hashリンクや余分な末尾スラッシュなどで実際のパスとズレている場合は、
+         history.replaceStateでURLを正規のパスに揃えておく（アドレスバーの見た目を
+         正しくし、同じページが複数のURLで重複しないようにする）。 */
+      if(location.pathname !== correctPath || location.hash){
+        history.replaceState({ view:initialView }, "", correctPath);
+      }
+    }
+    applyView(initialView);
+  })();
 </script>
 </body>
 </html>
