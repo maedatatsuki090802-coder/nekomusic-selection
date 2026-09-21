@@ -10,5 +10,7 @@
     // パスはすべて index.html にフォールバックし、あとはクライアント側JSが
     // location.pathname を見て正しいビューを表示する。
     "not_found_handling": "single-page-application"
-  }
+  }   "kv_namespaces": [
+     { "binding": "CDP_STATS", "id": 074143194c9142e1ac75cc68c9e12260}
+   ]
 }
