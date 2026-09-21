@@ -1,5 +1,5 @@
 {
-  "name": "your-music-select",
+  "name": "nekomusicselect",
   "compatibility_date": "2026-09-08",
   // follow-up (2026-09-17): 実訪問者データをworker.js経由でKVに記録し、⑥運営ダッシュボードから
   // 取得できるようにするため、静的配信専用の構成からWorkerスクリプトを持つ構成に変更した。
