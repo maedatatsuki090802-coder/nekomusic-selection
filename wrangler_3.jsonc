@@ -1,0 +1,27 @@
+{
+  "name": "your-music-select",
+  "compatibility_date": "2026-09-08",
+  // follow-up (2026-09-17): 実訪問者データをworker.js経由でKVに記録し、⑥運営ダッシュボードから
+  // 取得できるようにするため、静的配信専用の構成からWorkerスクリプトを持つ構成に変更した。
+  // main を指定すると、リクエストはまずworker.jsに渡る。worker.js側で /api/* だけ自前処理し、
+  // それ以外は env.ASSETS.fetch(request) にそのまま委譲しているので、既存の静的配信・
+  // SPAフォールバック（single-page-application）の挙動は今までと変わらない。
+  "main": "worker.js",
+  "assets": {
+    "directory": "./",
+    "binding": "ASSETS",
+    // follow-up (2026-09-13): ハッシュ(#new_popularityなど)ルーティングから、
+    // 本物のURLパス(/new_popularityなど)によるルーティングに移行するための設定。
+    // これがないと /new_popularity のような未知のパスへの直接アクセス・リロードが
+    // 404になる。single-page-application を指定すると、静的ファイルに一致しない
+    // パスはすべて index.html にフォールバックし、あとはクライアント側JSが
+    // location.pathname を見て正しいビューを表示する。
+    "not_found_handling": "single-page-application"
+  },
+  // follow-up (2026-09-17): 実データ集計の保存先（KV）。id は `wrangler kv namespace create
+  // CDP_STATS` を実行した後に出力される実際のnamespace idに置き換えること（セットアップ手順は
+  // README_REAL_DATA.md を参照）。
+  "kv_namespaces": [
+    { "binding": "CDP_STATS", "id": "074143194c9142e1ac75cc68c9e12260" }
+  ]
+}
